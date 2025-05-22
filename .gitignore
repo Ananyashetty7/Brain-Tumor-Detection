@@ -1,0 +1,24 @@
+# Python env and cache
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Model files
+*.h5
+*.keras
+*.pt
+*.pth
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Env files
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VS Code settings folder
+.vscode/
