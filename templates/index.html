@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain Tumor Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Upload Brain MRI Image</h1>
-    <form method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*" required>
-        <button type="submit">Predict</button>
-    </form>
-    {% if prediction %}
-        <h2>Prediction: {{ prediction }}</h2>
-    {% endif %}
+    <div class="container">
+        <div class="title-section">
+            <h1>Brain Tumor Detection</h1>
+            <p class="subtitle">Detect Brain Tumors from MRI Images using Deep Learning (CNN)</p>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+            <div class="file-upload">
+                <label for="file" class="file-label">
+                    <img src="{{ url_for('static', filename='image1.jpg') }}" alt="Upload" class="upload-icon">
+                    <span class="file-text">Choose MRI Image</span>
+                </label>
+                <input type="file" id="file" name="file" accept="image/*" required>
+                <div class="file-info">Upload a clear MRI brain scan image for analysis</div>
+            </div>
+            <button type="submit" class="submit-btn">Analyze Image</button>
+        </form>
+        {% if prediction %}
+            <div class="prediction">
+                <h2>Prediction: {{ prediction }}</h2>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
